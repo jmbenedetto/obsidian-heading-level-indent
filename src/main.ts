@@ -3,7 +3,7 @@ import { MarkdownView, Plugin, TFile } from "obsidian";
 import {
 	indentEmbedsPlugin,
 	indentStateField,
-	resizeNotificationPlugin,
+	headingIndentSettings,
 	updateNeededNotificationEffect
 } from "./editingMode";
 import { RenderedModeIndenter } from "./renderedMode";
@@ -12,12 +12,7 @@ import { initFrontmatterListener, getFrontmatterListener, cleanupFrontmatterList
 
 export default class HeadingIndent extends Plugin {
 	settings: HeadingIndentSettings;
-	private frontmatterChangeHandler: (
-		_newValue: string | null,
-		_oldValue: string | null,
-		_newFile: TFile | null,
-		_oldFile: TFile | null
-	) => void;
+	private frontmatterChangeHandler: () => void;
 
 	// Configure resources needed by the plugin.
 	async onload() {
@@ -29,38 +24,25 @@ export default class HeadingIndent extends Plugin {
 		getFrontmatterListener().start();
 
 		// Register editor extensions for editing mode
-		this.registerEditorExtension(indentStateField);
-		this.registerEditorExtension(indentEmbedsPlugin);
-		this.registerEditorExtension(resizeNotificationPlugin);
+		this.registerEditorExtension([
+			headingIndentSettings.of(() => this.settings), indentStateField, indentEmbedsPlugin
+		]);
+		// Inactive notes must also respond to their own metadata, independently of focus.
+		this.registerEvent(this.app.metadataCache.on("changed", file => this.refreshEditors(file)));
 
 		// Register post-processor for reading view and PDF export
-		this.registerMarkdownPostProcessor((element, _context) => {
+		this.registerMarkdownPostProcessor((element) => {
 			RenderedModeIndenter.applyIndent(element, this.settings);
 		}, 10);
 
 		// Define and register the frontmatter change handler
-		this.frontmatterChangeHandler = (
-			_newValue: string | null,
-			_oldValue: string | null,
-			_newFile: TFile | null,
-			_oldFile: TFile | null
-		) => {
+		this.frontmatterChangeHandler = () => {
 			// Handle reading view and pdf export
 			if (getFrontmatterListener().isIndentEnabled()) {
 				RenderedModeIndenter.applyToCurrentView(this.settings);
 			} else {
 				RenderedModeIndenter.clearCurrentView();
 			}
-
-			// Handle editing view (CodeMirror)
-			this.app.workspace.iterateAllLeaves((leaf) => {
-				const view = (leaf.view as any).editor?.cm as EditorView;
-				if (view) {
-					view.dispatch({
-						effects: updateNeededNotificationEffect.of()
-					});
-				}
-			});
 		};
 
 		getFrontmatterListener().addListener(this.frontmatterChangeHandler);
@@ -93,13 +75,16 @@ export default class HeadingIndent extends Plugin {
 
 	async saveSettings() {
 		await this.saveData(this.settings);
+		this.refreshEditors();
+	}
+
+	private refreshEditors(file?: TFile) {
 		this.app.workspace.iterateAllLeaves((leaf) => {
-			const view = (leaf.view as any).editor?.cm as EditorView;
-			if (view) {
-				view.dispatch({
-					effects: updateNeededNotificationEffect.of()
-				});
-			}
+			if (!(leaf.view instanceof MarkdownView)) return;
+			if (file && leaf.view.file?.path !== file.path) return;
+			// Obsidian exposes the CM view on Editor at runtime, but not in its API types.
+			const editor = leaf.view.editor as typeof leaf.view.editor & { cm?: EditorView };
+			editor.cm?.dispatch({ effects: updateNeededNotificationEffect.of() });
 		});
 	}
 }

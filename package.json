@@ -1,18 +1,23 @@
 {
 	"type": "module",
 	"name": "heading-level-indent",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"description": "Indenting content under headers based on their level",
 	"main": "src/main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"test": "playwright test",
+		"typecheck": "tsc -noEmit -skipLibCheck",
+		"lint": "eslint src",
+		"lint:editing": "eslint src/editingMode.ts src/main.ts",
 		"version": "node version-bump.mjs && git add manifest.json versions.json"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
 	"devDependencies": {
+		"@playwright/test": "1.58.2",
 		"@types/node": "^16.11.6",
 		"@typescript-eslint/eslint-plugin": "^5.2.0",
 		"@typescript-eslint/parser": "^5.2.0",
