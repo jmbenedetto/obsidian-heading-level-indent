@@ -15,6 +15,10 @@ main.js
 # Exclude sourcemaps
 *.map
 
+# Local browser test output and packaged builds
+.tmp/
+artifacts/
+
 # obsidian
 data.json
 

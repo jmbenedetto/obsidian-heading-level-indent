@@ -1,0 +1,103 @@
+[
+  {
+    "name": "Minimal real-theme note geometry",
+    "pass": true,
+    "detail": {
+      "content": 680,
+      "scroll": 680
+    }
+  },
+  {
+    "name": "Real Claudian focus and settings refresh preserve note width",
+    "pass": true,
+    "detail": {
+      "before": 598.3984375,
+      "after": 598.3984375
+    }
+  },
+  {
+    "name": "Inactive note resizes with Claudian focused",
+    "pass": true,
+    "detail": [
+      {
+        "sidebar": 480,
+        "content": 500,
+        "prose": 440
+      },
+      {
+        "sidebar": 360,
+        "content": 620,
+        "prose": 545.59375
+      },
+      {
+        "sidebar": 300,
+        "content": 680,
+        "prose": 598.3984375
+      }
+    ]
+  },
+  {
+    "name": "Hidden tab resizes and restores without stale sizing",
+    "pass": true,
+    "detail": {
+      "hiddenObserved": true,
+      "content": 560
+    }
+  },
+  {
+    "name": "Per-file metadata clears only the inactive target note",
+    "pass": true,
+    "detail": {
+      "off": true,
+      "on": true,
+      "otherUnchanged": true
+    }
+  },
+  {
+    "name": "Removing final heading clears the real editor decorations",
+    "pass": true,
+    "detail": {
+      "cleared": true
+    }
+  },
+  {
+    "name": "Extreme and invalid indents remain bounded",
+    "pass": true,
+    "detail": {
+      "capped": true,
+      "invalidOffset": 0
+    }
+  },
+  {
+    "name": "All-zero indents preserve unmodified theme alignment",
+    "pass": true,
+    "detail": {
+      "unmodified": true
+    }
+  },
+  {
+    "name": "Highest-present-heading normalization uses live settings",
+    "pass": true,
+    "detail": {
+      "heading": 0,
+      "prose": 30
+    }
+  },
+  {
+    "name": "Native Arabic per-line RTL fits beside an independent LTR note",
+    "pass": true,
+    "detail": {
+      "nativeRTL": true,
+      "right": 230,
+      "content": 280
+    }
+  },
+  {
+    "name": "Default Obsidian theme fits too",
+    "pass": true,
+    "detail": {
+      "content": 560,
+      "scroll": 560
+    }
+  }
+]

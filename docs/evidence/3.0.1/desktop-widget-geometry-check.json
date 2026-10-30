@@ -1,0 +1,21 @@
+{
+  "name": "Actual math, embed and SVG fit their own pane in the final lint-clean build",
+  "pass": true,
+  "content": 310,
+  "scroll": 310,
+  "math": {
+    "left": 30,
+    "right": 302.796875,
+    "width": 272.796875
+  },
+  "embed": {
+    "left": 50,
+    "right": 310,
+    "width": 260
+  },
+  "image": {
+    "left": 50,
+    "right": 310,
+    "width": 260
+  }
+}

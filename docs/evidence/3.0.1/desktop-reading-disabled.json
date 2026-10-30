@@ -1,0 +1,40 @@
+[
+  {
+    "padding": "",
+    "classes": [
+      "el-pre",
+      "mod-frontmatter",
+      "mod-ui"
+    ]
+  },
+  {
+    "padding": "",
+    "classes": [
+      "el-h2"
+    ]
+  },
+  {
+    "padding": "",
+    "classes": [
+      "el-p"
+    ]
+  },
+  {
+    "padding": "",
+    "classes": [
+      "el-h3"
+    ]
+  },
+  {
+    "padding": "",
+    "classes": [
+      "el-p"
+    ]
+  },
+  {
+    "padding": "",
+    "classes": [
+      "el-ul"
+    ]
+  }
+]

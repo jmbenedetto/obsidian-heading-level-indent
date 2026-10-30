@@ -1,4 +1,5 @@
 import { App, TFile } from "obsidian";
+import type { EventRef, Events } from "obsidian";
 
 /**
  * Listener for frontmatter field `heading-indent`
@@ -21,7 +22,7 @@ export class FrontmatterListener {
 
 	public fileChanged = false;
 	public valueChanged = false;
-	private eventRefs: any[] = [];
+	private eventRefs: { source: Events; ref: EventRef }[] = [];
 
 	constructor(app: App) {
 		this.app = app;
@@ -139,7 +140,7 @@ export class FrontmatterListener {
 		const leafChangeRef = this.app.workspace.on("active-leaf-change", () => {
 			this.update();
 		});
-		this.eventRefs.push(leafChangeRef);
+		this.eventRefs.push({ source: this.app.workspace, ref: leafChangeRef });
 
 		// Listen for metadata changes
 		const metadataChangeRef = this.app.metadataCache.on("changed", (file: TFile) => {
@@ -148,7 +149,7 @@ export class FrontmatterListener {
 				this.update();
 			}
 		});
-		this.eventRefs.push(metadataChangeRef);
+		this.eventRefs.push({ source: this.app.metadataCache, ref: metadataChangeRef });
 
 		// Initial update
 		this.update();
@@ -158,7 +159,7 @@ export class FrontmatterListener {
 	 * Stop listening and clean up event handlers
 	 */
 	stop(): void {
-		this.eventRefs.forEach((ref) => this.app.workspace.offref(ref));
+		this.eventRefs.forEach(({ source, ref }) => source.offref(ref));
 		this.eventRefs = [];
 	}
 }

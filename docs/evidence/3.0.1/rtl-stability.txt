@@ -1,0 +1,19 @@
+
+> heading-level-indent@3.0.1 test
+> playwright test --grep per-line text --repeat-each=10
+
+
+Running 10 tests using 1 worker
+
+  ✓   1 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (662ms)
+  ✓   2 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (382ms)
+  ✓   3 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (343ms)
+  ✓   4 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (356ms)
+  ✓   5 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (340ms)
+  ✓   6 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (381ms)
+  ✓   7 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (368ms)
+  ✓   8 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (371ms)
+  ✓   9 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (409ms)
+  ✓  10 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (391ms)
+
+  10 passed (21.2s)

@@ -42,6 +42,49 @@ heading-indent: false
 ---
 ```
 
+## 1. Local fork version 3.0.1
+
+This fork corrects two editing-mode sizing bugs in 3.0.0:
+
+- Heading-indented prose no longer extends beyond its content box when a theme such as Minimal centers lines with auto margins.
+- Focusing another CodeMirror input, such as Claudian chat, no longer makes an inactive note use that input's width.
+
+Line widths now use responsive CSS relative to their own editor's content box. Block widgets, math, internal embeds and images are scoped to that same editor. Settings and the `heading-indent` property apply independently to each Markdown file, including inactive editors. Inputs without a file-backed Obsidian editor are ignored.
+
+Affected heading sections align to the editor content edge. The plugin normalizes only those elements' inline margins, preserves theme max-width and existing list padding, and does not hide horizontal overflow. Entirely zero-indent sections keep their theme alignment. Indents larger than half the content width are capped there so narrow panes remain usable. RTL lines indent from the right even when their direction differs from the content container. Reading-mode/PDF indentation rules are unchanged; cleanup now works without fake settings and unregisters events through their owning source.
+
+Version 3.0.1 declares Obsidian 1.1.1 or later, matching the API package that supplies `editorInfoField`. This is a local build, not a published release. Nothing is installed automatically.
+
+## 2. Development and verification
+
+Use Node.js 20 or later for the browser test tooling.
+
+```sh
+npm ci
+npx playwright install chromium
+npm test
+npm run lint
+npm run lint:tests
+npm run typecheck
+npm run build
+```
+
+The build produces `main.js` beside `manifest.json`. This version does not require a separate `styles.css`. To try it, copy those two files into `.obsidian/plugins/heading-level-indent/` in a **disposable test vault**, then enable the plugin there. Do not overwrite an existing live installation without backing it up and confirming the installation separately.
+
+The 17 browser tests exercise real CodeMirror and Chromium with synthetic notes and widgets. They reproduce the relevant Minimal CSS rule, not the whole Obsidian application or Claudian. Host API and private HyperMD heading nodes are supplied at the test boundary. Production plugin registration, metadata notifications and settings routing also run against that boundary.
+
+Separate desktop verification used a fresh synthetic vault with Obsidian 1.14.5, full Minimal 7.7.3 and real Claudian 2.3.36. Both sizing bugs were reproduced and checked against the final build, with before/after screenshots. Sixteen desktop checks passed, covering editing, widgets, metadata, native per-line RTL, reading-view clearing and actual event unsubscription. No chat message was sent. PDF export, mobile, older app versions and exhaustive reading-mode rendering remain unverified. See the [verification record](docs/verification-3.0.1.md), [committed proof](docs/evidence/3.0.1/README.md) and [desktop replay instructions](tests/desktop/README.md) for methods, results and limits.
+
+To reproduce the two original failures without changing the working tree, run the original sizing module from commit `6f5eff9` through the same fixture. Both tests are **expected to fail**:
+
+```sh
+HLI_BASELINE=1 npm test -- --grep 'Minimal centered|focusing a 450px'
+```
+
+Test output defaults to `.tmp/tests/`. Set `HLI_TEST_OUTPUT` to choose another directory. If Chromium is managed separately, set `HLI_CHROMIUM_EXECUTABLE` to its executable path. The baseline command requires Git history containing `6f5eff9`.
+
+`npm run lint` checks all production source files and passes. The three inherited `no-explicit-any` errors were resolved with typed, correctly owned event references and settings-independent preview clearing, with regression tests. `npm run lint:tests` also checks the browser tests, fixtures and desktop drivers. The 17-test browser suite passed three consecutive repetitions, for 51 passes.
+
 ## Contributors
 
 <a href="https://github.com/svonjoi/obsidian-heading-level-indent/graphs/contributors">

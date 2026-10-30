@@ -1,0 +1,66 @@
+
+> heading-level-indent@3.0.1 test
+> playwright test --repeat-each=3
+
+
+Running 51 tests using 1 worker
+
+Minimal geometry {"contentWidth":906,"contentScroll":906,"paneWidth":938,"paneScroll":938,"lines":[{"left":30,"right":890.6875,"width":860.6875,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(30px, 50%));box-sizing:border-box;margin-inline-start:min(30px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"},{"left":50,"right":906,"width":856,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(50px, 50%));box-sizing:border-box;margin-inline-start:min(50px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"}],"embeds":[]}
+  ✓   1 tests/editing.spec.mjs:17:1 › Minimal centered margins do not make indented prose overflow (604ms)
+Focus geometry {"before":{"contentWidth":1010,"contentScroll":1010,"paneWidth":1042,"paneScroll":1042,"lines":[{"left":30,"right":989.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(30px, 50%));box-sizing:border-box;margin-inline-start:min(30px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"},{"left":50,"right":1009.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(50px, 50%));box-sizing:border-box;margin-inline-start:min(50px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"}],"embeds":[]},"after":{"contentWidth":1010,"contentScroll":1010,"paneWidth":1042,"paneScroll":1042,"lines":[{"left":30,"right":989.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(30px, 50%));box-sizing:border-box;margin-inline-start:min(30px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"},{"left":50,"right":1009.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(50px, 50%));box-sizing:border-box;margin-inline-start:min(50px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"}],"embeds":[]}}
+  ✓   2 tests/editing.spec.mjs:27:1 › focusing a 450px non-note editor cannot shrink an inactive note (275ms)
+  ✓   3 tests/editing.spec.mjs:40:1 › independent notes resize while a chat owns focus, including hidden editors (294ms)
+  ✓   4 tests/editing.spec.mjs:57:1 › math, block embeds, internal embeds and images use their own editor and heading (352ms)
+  ✓   5 tests/editing.spec.mjs:73:1 › per-note metadata clears and restores line and widget styles without changing another note (358ms)
+  ✓   6 tests/editing.spec.mjs:89:1 › removing the final heading clears decorations and resizes widgets back to theme defaults (349ms)
+  ✓   7 tests/editing.spec.mjs:97:1 › settings changes, normalized heading levels and extreme indents stay responsive (240ms)
+  ✓   8 tests/editing.spec.mjs:114:1 › production registration routes metadata and settings to Markdown editors only (351ms)
+  ✓   9 tests/editing.spec.mjs:133:1 › RTL prose and widgets indent from the right without overflow (253ms)
+  ✓  10 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (347ms)
+  ✓  11 tests/editing.spec.mjs:173:1 › all-zero indentation leaves the theme's original alignment intact (300ms)
+  ✓  12 tests/editing.spec.mjs:183:1 › widget cleanup preserves pre-existing inline values and priorities (460ms)
+  ✓  13 tests/editing.spec.mjs:199:1 › default theme widths also fit and no overflow is hidden (434ms)
+  ✓  14 tests/editing.spec.mjs:211:1 › unloading the editor extension restores widget styles and cancels pending work (345ms)
+  ✓  15 tests/lifecycle.spec.mjs:11:1 › reading-view clearing needs no settings and preserves unrelated styles in every preview (314ms)
+  ✓  16 tests/lifecycle.spec.mjs:31:1 › rendered-mode cleanup clears existing styles and disconnects section and global observers (306ms)
+  ✓  17 tests/lifecycle.spec.mjs:50:1 › frontmatter listener removes each reference from its owning event source only once (276ms)
+Minimal geometry {"contentWidth":906,"contentScroll":906,"paneWidth":938,"paneScroll":938,"lines":[{"left":30,"right":890.6875,"width":860.6875,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(30px, 50%));box-sizing:border-box;margin-inline-start:min(30px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"},{"left":50,"right":906,"width":856,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(50px, 50%));box-sizing:border-box;margin-inline-start:min(50px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"}],"embeds":[]}
+  ✓  18 tests/editing.spec.mjs:17:1 › Minimal centered margins do not make indented prose overflow (372ms)
+Focus geometry {"before":{"contentWidth":1010,"contentScroll":1010,"paneWidth":1042,"paneScroll":1042,"lines":[{"left":30,"right":989.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(30px, 50%));box-sizing:border-box;margin-inline-start:min(30px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"},{"left":50,"right":1009.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(50px, 50%));box-sizing:border-box;margin-inline-start:min(50px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"}],"embeds":[]},"after":{"contentWidth":1010,"contentScroll":1010,"paneWidth":1042,"paneScroll":1042,"lines":[{"left":30,"right":989.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(30px, 50%));box-sizing:border-box;margin-inline-start:min(30px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"},{"left":50,"right":1009.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(50px, 50%));box-sizing:border-box;margin-inline-start:min(50px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"}],"embeds":[]}}
+  ✓  19 tests/editing.spec.mjs:27:1 › focusing a 450px non-note editor cannot shrink an inactive note (244ms)
+  ✓  20 tests/editing.spec.mjs:40:1 › independent notes resize while a chat owns focus, including hidden editors (253ms)
+  ✓  21 tests/editing.spec.mjs:57:1 › math, block embeds, internal embeds and images use their own editor and heading (296ms)
+  ✓  22 tests/editing.spec.mjs:73:1 › per-note metadata clears and restores line and widget styles without changing another note (356ms)
+  ✓  23 tests/editing.spec.mjs:89:1 › removing the final heading clears decorations and resizes widgets back to theme defaults (332ms)
+  ✓  24 tests/editing.spec.mjs:97:1 › settings changes, normalized heading levels and extreme indents stay responsive (256ms)
+  ✓  25 tests/editing.spec.mjs:114:1 › production registration routes metadata and settings to Markdown editors only (325ms)
+  ✓  26 tests/editing.spec.mjs:133:1 › RTL prose and widgets indent from the right without overflow (293ms)
+  ✓  27 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (460ms)
+  ✓  28 tests/editing.spec.mjs:173:1 › all-zero indentation leaves the theme's original alignment intact (318ms)
+  ✓  29 tests/editing.spec.mjs:183:1 › widget cleanup preserves pre-existing inline values and priorities (326ms)
+  ✓  30 tests/editing.spec.mjs:199:1 › default theme widths also fit and no overflow is hidden (529ms)
+  ✓  31 tests/editing.spec.mjs:211:1 › unloading the editor extension restores widget styles and cancels pending work (320ms)
+  ✓  32 tests/lifecycle.spec.mjs:11:1 › reading-view clearing needs no settings and preserves unrelated styles in every preview (284ms)
+  ✓  33 tests/lifecycle.spec.mjs:31:1 › rendered-mode cleanup clears existing styles and disconnects section and global observers (296ms)
+  ✓  34 tests/lifecycle.spec.mjs:50:1 › frontmatter listener removes each reference from its owning event source only once (232ms)
+Minimal geometry {"contentWidth":906,"contentScroll":906,"paneWidth":938,"paneScroll":938,"lines":[{"left":30,"right":890.6875,"width":860.6875,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(30px, 50%));box-sizing:border-box;margin-inline-start:min(30px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"},{"left":50,"right":906,"width":856,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(50px, 50%));box-sizing:border-box;margin-inline-start:min(50px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"}],"embeds":[]}
+  ✓  35 tests/editing.spec.mjs:17:1 › Minimal centered margins do not make indented prose overflow (348ms)
+Focus geometry {"before":{"contentWidth":1010,"contentScroll":1010,"paneWidth":1042,"paneScroll":1042,"lines":[{"left":30,"right":989.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(30px, 50%));box-sizing:border-box;margin-inline-start:min(30px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"},{"left":50,"right":1009.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(50px, 50%));box-sizing:border-box;margin-inline-start:min(50px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"}],"embeds":[]},"after":{"contentWidth":1010,"contentScroll":1010,"paneWidth":1042,"paneScroll":1042,"lines":[{"left":30,"right":989.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(30px, 50%));box-sizing:border-box;margin-inline-start:min(30px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"},{"left":50,"right":1009.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(50px, 50%));box-sizing:border-box;margin-inline-start:min(50px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"}],"embeds":[]}}
+  ✓  36 tests/editing.spec.mjs:27:1 › focusing a 450px non-note editor cannot shrink an inactive note (257ms)
+  ✓  37 tests/editing.spec.mjs:40:1 › independent notes resize while a chat owns focus, including hidden editors (243ms)
+  ✓  38 tests/editing.spec.mjs:57:1 › math, block embeds, internal embeds and images use their own editor and heading (306ms)
+  ✓  39 tests/editing.spec.mjs:73:1 › per-note metadata clears and restores line and widget styles without changing another note (391ms)
+  ✓  40 tests/editing.spec.mjs:89:1 › removing the final heading clears decorations and resizes widgets back to theme defaults (277ms)
+  ✓  41 tests/editing.spec.mjs:97:1 › settings changes, normalized heading levels and extreme indents stay responsive (233ms)
+  ✓  42 tests/editing.spec.mjs:114:1 › production registration routes metadata and settings to Markdown editors only (355ms)
+  ✓  43 tests/editing.spec.mjs:133:1 › RTL prose and widgets indent from the right without overflow (238ms)
+  ✓  44 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (303ms)
+  ✓  45 tests/editing.spec.mjs:173:1 › all-zero indentation leaves the theme's original alignment intact (244ms)
+  ✓  46 tests/editing.spec.mjs:183:1 › widget cleanup preserves pre-existing inline values and priorities (265ms)
+  ✓  47 tests/editing.spec.mjs:199:1 › default theme widths also fit and no overflow is hidden (318ms)
+  ✓  48 tests/editing.spec.mjs:211:1 › unloading the editor extension restores widget styles and cancels pending work (329ms)
+  ✓  49 tests/lifecycle.spec.mjs:11:1 › reading-view clearing needs no settings and preserves unrelated styles in every preview (251ms)
+  ✓  50 tests/lifecycle.spec.mjs:31:1 › rendered-mode cleanup clears existing styles and disconnects section and global observers (264ms)
+  ✓  51 tests/lifecycle.spec.mjs:50:1 › frontmatter listener removes each reference from its owning event source only once (222ms)
+
+  51 passed (22.9s)

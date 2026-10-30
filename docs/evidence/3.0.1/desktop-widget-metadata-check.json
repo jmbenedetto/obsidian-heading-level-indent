@@ -1,0 +1,4 @@
+{
+  "name": "Widget note metadata restores its styles without changing another note",
+  "pass": true
+}

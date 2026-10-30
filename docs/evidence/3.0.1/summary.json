@@ -1,0 +1,263 @@
+{
+  "pluginVersion": "3.0.1",
+  "appVersion": "1.14.5",
+  "theme": {
+    "name": "Minimal",
+    "version": "7.7.3"
+  },
+  "claudianVersion": "2.3.36",
+  "mainSHA256": "f1cff064d70f5446241d19c6892dda8632e477bb7edb0493b4c97bdfbbba3454",
+  "browser": {
+    "tests": 17,
+    "repetitions": 3,
+    "passed": 51,
+    "directionRepetitionsPassed": 10
+  },
+  "desktop": {
+    "passed": 16,
+    "checks": [
+      {
+        "name": "Minimal real-theme note geometry",
+        "pass": true,
+        "detail": {
+          "content": 680,
+          "scroll": 680
+        }
+      },
+      {
+        "name": "Real Claudian focus and settings refresh preserve note width",
+        "pass": true,
+        "detail": {
+          "before": 598.3984375,
+          "after": 598.3984375
+        }
+      },
+      {
+        "name": "Inactive note resizes with Claudian focused",
+        "pass": true,
+        "detail": [
+          {
+            "sidebar": 480,
+            "content": 500,
+            "prose": 440
+          },
+          {
+            "sidebar": 360,
+            "content": 620,
+            "prose": 545.59375
+          },
+          {
+            "sidebar": 300,
+            "content": 680,
+            "prose": 598.3984375
+          }
+        ]
+      },
+      {
+        "name": "Hidden tab resizes and restores without stale sizing",
+        "pass": true,
+        "detail": {
+          "hiddenObserved": true,
+          "content": 560
+        }
+      },
+      {
+        "name": "Per-file metadata clears only the inactive target note",
+        "pass": true,
+        "detail": {
+          "off": true,
+          "on": true,
+          "otherUnchanged": true
+        }
+      },
+      {
+        "name": "Removing final heading clears the real editor decorations",
+        "pass": true,
+        "detail": {
+          "cleared": true
+        }
+      },
+      {
+        "name": "Extreme and invalid indents remain bounded",
+        "pass": true,
+        "detail": {
+          "capped": true,
+          "invalidOffset": 0
+        }
+      },
+      {
+        "name": "All-zero indents preserve unmodified theme alignment",
+        "pass": true,
+        "detail": {
+          "unmodified": true
+        }
+      },
+      {
+        "name": "Highest-present-heading normalization uses live settings",
+        "pass": true,
+        "detail": {
+          "heading": 0,
+          "prose": 30
+        }
+      },
+      {
+        "name": "Native Arabic per-line RTL fits beside an independent LTR note",
+        "pass": true,
+        "detail": {
+          "nativeRTL": true,
+          "right": 230,
+          "content": 280
+        }
+      },
+      {
+        "name": "Default Obsidian theme fits too",
+        "pass": true,
+        "detail": {
+          "content": 560,
+          "scroll": 560
+        }
+      },
+      {
+        "name": "Actual math, embed and SVG fit their own pane in the final lint-clean build",
+        "pass": true,
+        "content": 310,
+        "scroll": 310,
+        "math": {
+          "left": 30,
+          "right": 302.796875,
+          "width": 272.796875
+        },
+        "embed": {
+          "left": 50,
+          "right": 310,
+          "width": 260
+        },
+        "image": {
+          "left": 50,
+          "right": 310,
+          "width": 260
+        }
+      },
+      {
+        "name": "Widget note metadata restores its styles without changing another note",
+        "pass": true
+      },
+      {
+        "name": "Actual plugin unload restores a connected widget and removes all line decorations",
+        "pass": true,
+        "applied": {
+          "connected": true,
+          "margin": "min(30px, 50%)"
+        },
+        "restored": {
+          "connected": true,
+          "margin": "7px",
+          "priority": "important",
+          "end": "13px",
+          "width": "81%",
+          "position": "static",
+          "offset": "",
+          "lines": 0
+        }
+      },
+      {
+        "name": "Actual reading view applies indentation, clears on frontmatter disable, reapplies and clears on plugin unload",
+        "pass": true,
+        "enabled": {
+          "heading": "30px",
+          "prose": "50px"
+        },
+        "cleared": [
+          {
+            "padding": "",
+            "classes": [
+              "el-pre",
+              "mod-frontmatter",
+              "mod-ui"
+            ]
+          },
+          {
+            "padding": "",
+            "classes": [
+              "el-h2"
+            ]
+          },
+          {
+            "padding": "",
+            "classes": [
+              "el-p"
+            ]
+          },
+          {
+            "padding": "",
+            "classes": [
+              "el-h3"
+            ]
+          },
+          {
+            "padding": "",
+            "classes": [
+              "el-p"
+            ]
+          },
+          {
+            "padding": "",
+            "classes": [
+              "el-ul"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Native event references return to baseline after two plugin load/unload cycles",
+        "pass": true,
+        "baseline": {
+          "workspace": 3,
+          "metadata": 5
+        },
+        "cycles": [
+          {
+            "loaded": {
+              "workspace": 4,
+              "metadata": 7
+            },
+            "unloaded": {
+              "workspace": 3,
+              "metadata": 5
+            }
+          },
+          {
+            "loaded": {
+              "workspace": 4,
+              "metadata": 7
+            },
+            "unloaded": {
+              "workspace": 3,
+              "metadata": 5
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "measurements": {
+    "minimal": {
+      "content": 680,
+      "beforeScroll": 709,
+      "afterScroll": 680
+    },
+    "chatRefresh": {
+      "noteContent": 620,
+      "chatContent": 334,
+      "proseBefore": 284,
+      "proseAfter": 545.59375
+    }
+  },
+  "privacy": "Synthetic notes/assets only. Host paths and session identifiers in text evidence were replaced. Screenshots are original application captures; no model request was sent.",
+  "limits": [
+    "No PDF export, mobile or older-app validation",
+    "No active chat conversation or model execution",
+    "Reading-mode coverage is focused apply/disable/unload smoke, not exhaustive rendering"
+  ],
+  "baselineMainSHA256": "d360b6ea523e8d5023669d8c4ad3b767a22a4457fcf6e62e5f6d48c21faddb08"
+}
