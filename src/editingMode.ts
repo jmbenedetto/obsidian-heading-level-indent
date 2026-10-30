@@ -76,20 +76,21 @@ function indentForLevel(settings: HeadingIndentSettings, level: number): number 
 /**
  * Resolve percentages in the owning content box in CSS, including while resizing
  * or hidden. Never read geometry in a StateField or store a measured pixel width.
- * Affected heading sections share a content-edge baseline, including zero-offset
- * heading lines. Their auto margins would center the reduced box before shifting
- * it again. Entirely zero-indent sections and theme max-width stay untouched.
- * Cap oversized indents at half the content width to keep narrow panes usable.
+ * Affected sections use a start margin for the indent and an auto end margin.
+ * Unlike relative offsets, flow margins also work when Obsidian's per-line dir
+ * differs from the content container. The end margin absorbs unused theme width.
+ * Entirely zero-indent sections and theme max-width stay untouched. Cap oversized
+ * indents at half the content width to keep narrow panes usable.
  */
 function indentProperties(indent: number, image = false): Record<string, string> {
 	const offset = `min(${indent}px, 50%)`;
 	return {
 		position: "relative",
-		"inset-inline-start": offset,
+		"inset-inline-start": "0px",
 		[image ? "max-width" : "width"]: `calc(100% - ${offset})`,
 		"box-sizing": "border-box",
-		"margin-inline-start": "0px",
-		"margin-inline-end": "0px"
+		"margin-inline-start": offset,
+		"margin-inline-end": "auto"
 	};
 }
 

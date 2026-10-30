@@ -1,0 +1,59 @@
+$ npm test
+
+> heading-level-indent@3.0.1 test
+> playwright test
+
+
+Running 17 tests using 1 worker
+
+Minimal geometry {"contentWidth":906,"contentScroll":906,"paneWidth":938,"paneScroll":938,"lines":[{"left":30,"right":890.6875,"width":860.6875,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(30px, 50%));box-sizing:border-box;margin-inline-start:min(30px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"},{"left":50,"right":906,"width":856,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(50px, 50%));box-sizing:border-box;margin-inline-start:min(50px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"}],"embeds":[]}
+  ✓   1 tests/editing.spec.mjs:17:1 › Minimal centered margins do not make indented prose overflow (433ms)
+Focus geometry {"before":{"contentWidth":1010,"contentScroll":1010,"paneWidth":1042,"paneScroll":1042,"lines":[{"left":30,"right":989.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(30px, 50%));box-sizing:border-box;margin-inline-start:min(30px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"},{"left":50,"right":1009.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(50px, 50%));box-sizing:border-box;margin-inline-start:min(50px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"}],"embeds":[]},"after":{"contentWidth":1010,"contentScroll":1010,"paneWidth":1042,"paneScroll":1042,"lines":[{"left":30,"right":989.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(30px, 50%));box-sizing:border-box;margin-inline-start:min(30px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"},{"left":50,"right":1009.5,"width":959.5,"css":"position:relative;inset-inline-start:0px;width:calc(100% - min(50px, 50%));box-sizing:border-box;margin-inline-start:min(50px, 50%)!important;margin-inline-end:auto!important;","className":"heading-level-indent-line cm-line"}],"embeds":[]}}
+  ✓   2 tests/editing.spec.mjs:27:1 › focusing a 450px non-note editor cannot shrink an inactive note (221ms)
+  ✓   3 tests/editing.spec.mjs:40:1 › independent notes resize while a chat owns focus, including hidden editors (467ms)
+  ✓   4 tests/editing.spec.mjs:57:1 › math, block embeds, internal embeds and images use their own editor and heading (496ms)
+  ✓   5 tests/editing.spec.mjs:73:1 › per-note metadata clears and restores line and widget styles without changing another note (412ms)
+  ✓   6 tests/editing.spec.mjs:89:1 › removing the final heading clears decorations and resizes widgets back to theme defaults (764ms)
+  ✓   7 tests/editing.spec.mjs:97:1 › settings changes, normalized heading levels and extreme indents stay responsive (301ms)
+  ✓   8 tests/editing.spec.mjs:114:1 › production registration routes metadata and settings to Markdown editors only (311ms)
+  ✓   9 tests/editing.spec.mjs:133:1 › RTL prose and widgets indent from the right without overflow (304ms)
+  ✓  10 tests/editing.spec.mjs:145:1 › per-line text directions fit even when they differ from the editor direction (433ms)
+  ✓  11 tests/editing.spec.mjs:173:1 › all-zero indentation leaves the theme's original alignment intact (325ms)
+  ✓  12 tests/editing.spec.mjs:183:1 › widget cleanup preserves pre-existing inline values and priorities (374ms)
+  ✓  13 tests/editing.spec.mjs:199:1 › default theme widths also fit and no overflow is hidden (357ms)
+  ✓  14 tests/editing.spec.mjs:211:1 › unloading the editor extension restores widget styles and cancels pending work (341ms)
+  ✓  15 tests/lifecycle.spec.mjs:11:1 › reading-view clearing needs no settings and preserves unrelated styles in every preview (237ms)
+  ✓  16 tests/lifecycle.spec.mjs:31:1 › rendered-mode cleanup clears existing styles and disconnects section and global observers (207ms)
+  ✓  17 tests/lifecycle.spec.mjs:50:1 › frontmatter listener removes each reference from its owning event source only once (168ms)
+
+  17 passed (8.7s)
+
+$ npm run lint
+
+> heading-level-indent@3.0.1 lint
+> eslint src
+
+
+$ npm run lint:tests
+
+> heading-level-indent@3.0.1 lint:tests
+> eslint "tests/**/*.mjs" playwright.config.mjs --global window --global document --global Node --global HTMLElement --global CSS --global console --global process --global setTimeout --global requestAnimationFrame
+
+
+$ npm run typecheck
+
+> heading-level-indent@3.0.1 typecheck
+> tsc -noEmit -skipLibCheck
+
+
+$ npm run build
+
+> heading-level-indent@3.0.1 build
+> tsc -noEmit -skipLibCheck && node esbuild.config.mjs production
+
+
+  main.js  24.3kb
+
+⚡ Done in 4ms
+
+$ git diff --check

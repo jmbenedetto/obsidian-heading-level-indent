@@ -1,0 +1,30 @@
+{
+  "name": "Native event references return to baseline after two plugin load/unload cycles",
+  "pass": true,
+  "baseline": {
+    "workspace": 3,
+    "metadata": 5
+  },
+  "cycles": [
+    {
+      "loaded": {
+        "workspace": 4,
+        "metadata": 7
+      },
+      "unloaded": {
+        "workspace": 3,
+        "metadata": 5
+      }
+    },
+    {
+      "loaded": {
+        "workspace": 4,
+        "metadata": 7
+      },
+      "unloaded": {
+        "workspace": 3,
+        "metadata": 5
+      }
+    }
+  ]
+}

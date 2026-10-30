@@ -1,3 +1,4 @@
+import "./lifecycle-fixture.mjs";
 import { EditorState, StateEffect, StateField } from "@codemirror/state";
 import { Decoration, EditorView, WidgetType } from "@codemirror/view";
 import { Language, defineLanguageFacet } from "@codemirror/language";
@@ -49,8 +50,8 @@ initFrontmatterListener(app);
 getFrontmatterListener().update();
 
 class Embed extends WidgetType {
-    constructor(kind) { super(); this.kind = kind; }
-    eq(other) { return other.kind === this.kind; }
+    constructor(kind, direction) { super(); this.kind = kind; this.direction = direction; }
+    eq(other) { return other.kind === this.kind && other.direction === this.direction; }
     toDOM() {
         const element = document.createElement(this.kind === "IMAGE" ? "img" : "div");
         element.className = { EMBED: "cm-embed-block", MATH: "math-block",
@@ -60,6 +61,7 @@ class Embed extends WidgetType {
         } else {
             element.textContent = `${this.kind} synthetic widget`;
         }
+        if (this.direction) element.dir = this.direction;
         element.style.cssText = window.widgetStyle || "";
         return element;
     }
@@ -74,11 +76,28 @@ function widgetDecorations(state) {
     for (let i = 1; i <= state.doc.lines; i++) {
         const line = state.doc.line(i);
         if (/^(EMBED|MATH|INTERNAL|IMAGE)$/.test(line.text)) {
-            ranges.push(Decoration.replace({ widget: new Embed(line.text), block: true }).range(line.from, line.to));
+            const direction = state.field(editorInfoField, false)?.file?.lineDirection;
+            ranges.push(Decoration.replace({ widget: new Embed(line.text, direction), block: true }).range(line.from, line.to));
         }
     }
     return Decoration.set(ranges);
 }
+// Model Obsidian's host-owned per-line dir attributes through decorations.
+// Direct DOM writes race with CodeMirror redrawing its own line elements.
+function directionDecorations(state) {
+    const direction = state.field(editorInfoField, false)?.file?.lineDirection;
+    if (!direction) return Decoration.none;
+    const ranges = [];
+    for (let line = 1; line <= state.doc.lines; line++) {
+        ranges.push(Decoration.line({ attributes: { dir: direction } }).range(state.doc.line(line).from));
+    }
+    return Decoration.set(ranges);
+}
+const lineDirections = StateField.define({
+    create: directionDecorations,
+    update: (_, transaction) => directionDecorations(transaction.state),
+    provide: field => EditorView.decorations.from(field)
+});
 const views = new Map();
 let plugin;
 window.fixture = {
@@ -96,7 +115,7 @@ window.fixture = {
         metadataHandlers.forEach(handler => handler(file));
     },
     create(id, width, { doc = "## Heading\n" + "Ordinary prose wraps within its note pane. ".repeat(60),
-        note = true, disabled = false, active = false } = {}) {
+        note = true, disabled = false, active = false, lineDirection } = {}) {
         const leaf = document.createElement("section");
         leaf.id = id;
         leaf.className = `workspace-leaf ${active ? "mod-active" : ""}`;
@@ -104,8 +123,8 @@ window.fixture = {
         const parent = leaf.appendChild(document.createElement("div"));
         parent.className = "markdown-source-view mod-cm6 is-readable-line-width";
         document.body.appendChild(leaf);
-        const file = { path: `${id}.md`, frontmatter: disabled ? { "heading-indent": false } : {} };
-        const extensions = [language, widgets, EditorView.lineWrapping,
+        const file = { path: `${id}.md`, frontmatter: disabled ? { "heading-indent": false } : {}, lineDirection };
+        const extensions = [language, widgets, lineDirections, EditorView.lineWrapping,
             plugin ? plugin.editorExtensions : [indentStateField, indentEmbedsPlugin, headingIndentSettings.of(() => settings)]];
         if (note) extensions.unshift(editorInfoField.init(() => ({ app, file })));
         const view = new EditorView({ state: EditorState.create({ doc, extensions }), parent });

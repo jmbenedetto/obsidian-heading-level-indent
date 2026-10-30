@@ -142,6 +142,34 @@ test("RTL prose and widgets indent from the right without overflow", async ({ pa
     expect(actual.paneScroll).toBe(actual.paneWidth);
 });
 
+test("per-line text directions fit even when they differ from the editor direction", async ({ page }) => {
+    for (const minimal of [true, false]) {
+        for (const editorDirection of ["ltr", "rtl"]) {
+            for (const lineDirection of ["ltr", "rtl"]) {
+                const id = `${minimal}-${editorDirection}-${lineDirection}`;
+                await page.evaluate(({ id, minimal, editorDirection, lineDirection }) => {
+                    window.fixture.create(id, 938, { doc: "## Heading\nSynthetic prose\nINTERNAL", lineDirection });
+                    const content = document.querySelector(`#${CSS.escape(id)} .cm-content`);
+                    content.style.direction = editorDirection;
+                    if (!minimal) content.closest(".markdown-source-view").classList.remove("is-readable-line-width");
+                }, { id, minimal, editorDirection, lineDirection });
+                await expect.poll(async () => (await measure(page, id)).embeds.length).toBe(1);
+                const actual = await measure(page, id);
+                for (const box of [...actual.lines, ...actual.embeds]) {
+                    expect(box.left).toBeGreaterThanOrEqual(0);
+                    expect(box.right).toBeLessThanOrEqual(actual.contentWidth + 1);
+                }
+                expect(await page.evaluate(({ id, lineDirection }) =>
+                    [...document.querySelector(`#${CSS.escape(id)} .cm-content`).children]
+                        .every(el => el.dir === lineDirection), { id, lineDirection })).toBe(true);
+                expect(actual.lines[1][lineDirection === "rtl" ? "right" : "left"])
+                    .toBeCloseTo(lineDirection === "rtl" ? 856 : 50, 0);
+                expect(actual.contentScroll).toBe(actual.contentWidth);
+            }
+        }
+    }
+});
+
 test("all-zero indentation leaves the theme's original alignment intact", async ({ page }) => {
     await page.evaluate(() => {
         window.fixture.create("note", 938, { doc: "Before heading\n# Heading\nAfter heading" });

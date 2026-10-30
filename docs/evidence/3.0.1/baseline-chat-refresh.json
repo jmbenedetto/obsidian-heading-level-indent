@@ -1,0 +1,176 @@
+{
+  "theme": "Minimal",
+  "version": "3.0.0",
+  "activeType": "claudian-view",
+  "activeFile": "UI Regression.md",
+  "notes": [
+    {
+      "file": "UI Regression.md",
+      "visible": true,
+      "contentWidth": 620,
+      "contentScroll": 620,
+      "paneWidth": 620,
+      "paneScroll": 620,
+      "lines": [
+        {
+          "left": 188,
+          "right": 492,
+          "width": 304,
+          "css": "left: 30px; width: 304px;",
+          "className": "cm-line HyperMD-header HyperMD-header-2",
+          "text": "Second-level heading"
+        },
+        {
+          "left": 218,
+          "right": 502,
+          "width": 284,
+          "css": "left: 50px; width: 284px;",
+          "className": "cm-line",
+          "text": ""
+        },
+        {
+          "left": 218,
+          "right": 502,
+          "width": 284,
+          "css": "left: 50px; width: 284px;",
+          "className": "cm-line cm-active",
+          "text": "Prose marker: this synthetic paragraph should use its own note width even while "
+        },
+        {
+          "left": 218,
+          "right": 502,
+          "width": 284,
+          "css": "left: 50px; width: 284px;",
+          "className": "cm-line",
+          "text": ""
+        },
+        {
+          "left": 218,
+          "right": 502,
+          "width": 284,
+          "css": "left: 50px; width: 284px;",
+          "className": "cm-line HyperMD-header HyperMD-header-3",
+          "text": "Third-level heading"
+        },
+        {
+          "left": 248,
+          "right": 512,
+          "width": 264,
+          "css": "left: 70px; width: 264px;",
+          "className": "cm-line",
+          "text": ""
+        },
+        {
+          "left": 248,
+          "right": 512,
+          "width": 264,
+          "css": "left: 70px; width: 264px;",
+          "className": "cm-line",
+          "text": "Another synthetic paragraph remains inside the note pane. "
+        },
+        {
+          "left": 248,
+          "right": 512,
+          "width": 264,
+          "css": "left: 70px; width: 264px;",
+          "className": "cm-line",
+          "text": ""
+        },
+        {
+          "left": 248,
+          "right": 512,
+          "width": 264,
+          "css": "text-indent: -23px; padding-inline-start: 23px; left: 70px; width: 264px;",
+          "className": "cm-line HyperMD-list-line HyperMD-list-line-1",
+          "text": "- A list item under the third-level heading."
+        },
+        {
+          "left": 248,
+          "right": 512,
+          "width": 264,
+          "css": "text-indent: -23px; padding-inline-start: 23px; left: 70px; width: 264px;",
+          "className": "cm-line HyperMD-list-line HyperMD-list-line-1",
+          "text": "- Another list item, with no personal information."
+        },
+        {
+          "left": 248,
+          "right": 512,
+          "width": 264,
+          "css": "left: 70px; width: 264px;",
+          "className": "cm-line",
+          "text": ""
+        }
+      ],
+      "widgets": []
+    },
+    {
+      "file": "Disabled Regression.md",
+      "visible": false,
+      "contentWidth": 0,
+      "contentScroll": 0,
+      "paneWidth": 0,
+      "paneScroll": 0,
+      "lines": [
+        {
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "css": null,
+          "className": "cm-line cm-active",
+          "text": ""
+        },
+        {
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "css": "left: 30px; width: 304px;",
+          "className": "cm-line HyperMD-header HyperMD-header-2",
+          "text": "Disabled heading"
+        },
+        {
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "css": "left: 50px; width: 284px;",
+          "className": "cm-line",
+          "text": ""
+        },
+        {
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "css": "left: 50px; width: 284px;",
+          "className": "cm-line",
+          "text": "Disabled prose marker: this note must retain the theme's normal positioning."
+        },
+        {
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "css": "left: 50px; width: 284px;",
+          "className": "cm-line",
+          "text": ""
+        }
+      ],
+      "widgets": [
+        {
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "css": null,
+          "className": "",
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "width": 334,
+      "active": true,
+      "activeLeaf": true,
+      "decorated": 0
+    }
+  ],
+  "errors": []
+}

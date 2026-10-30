@@ -1,0 +1,48 @@
+{
+  "name": "Actual reading view applies indentation, clears on frontmatter disable, reapplies and clears on plugin unload",
+  "pass": true,
+  "enabled": {
+    "heading": "30px",
+    "prose": "50px"
+  },
+  "cleared": [
+    {
+      "padding": "",
+      "classes": [
+        "el-pre",
+        "mod-frontmatter",
+        "mod-ui"
+      ]
+    },
+    {
+      "padding": "",
+      "classes": [
+        "el-h2"
+      ]
+    },
+    {
+      "padding": "",
+      "classes": [
+        "el-p"
+      ]
+    },
+    {
+      "padding": "",
+      "classes": [
+        "el-h3"
+      ]
+    },
+    {
+      "padding": "",
+      "classes": [
+        "el-p"
+      ]
+    },
+    {
+      "padding": "",
+      "classes": [
+        "el-ul"
+      ]
+    }
+  ]
+}

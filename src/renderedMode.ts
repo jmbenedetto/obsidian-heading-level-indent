@@ -142,10 +142,7 @@ export class RenderedModeIndenter {
 		// Find ALL preview views (not just the active one)
 		const allPreviewViews = activeDocument.querySelectorAll(".markdown-preview-view");
 
-		allPreviewViews.forEach((previewView) => {
-			const processor = new IndentProcessor(null as any, previewView as HTMLElement);
-			processor.clear();
-		});
+		allPreviewViews.forEach((previewView) => IndentProcessor.clear(previewView));
 	}
 
 	/**
@@ -172,10 +169,7 @@ export class RenderedModeIndenter {
 
 		// Clear indentation from ALL markdown preview views in the entire workspace
 		const allPreviewViews = document.querySelectorAll(".markdown-preview-view");
-		allPreviewViews.forEach((previewView) => {
-			const processor = new IndentProcessor(null as any, previewView as HTMLElement);
-			processor.clear();
-		});
+		allPreviewViews.forEach((previewView) => IndentProcessor.clear(previewView));
 	}
 }
 
@@ -217,8 +211,13 @@ class IndentProcessor {
 	 * Remove all indentation styles and classes
 	 */
 	clear(): void {
+		IndentProcessor.clear(this.rootElement);
+	}
+
+	/** Clearing styles does not require indentation settings. */
+	static clear(rootElement: Element): void {
 		// Find all divs with el- classes (these are the containers we add padding to)
-		const elDivs = this.rootElement.querySelectorAll('div[class*="el-"]');
+		const elDivs = rootElement.querySelectorAll('div[class*="el-"]');
 
 		for (const div of Array.from(elDivs)) {
 			const htmlDiv = div as HTMLElement;

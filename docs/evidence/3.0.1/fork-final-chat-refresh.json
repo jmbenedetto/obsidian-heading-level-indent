@@ -1,0 +1,176 @@
+{
+  "theme": "Minimal",
+  "version": "3.0.1",
+  "activeType": "claudian-view",
+  "activeFile": "UI Regression.md",
+  "notes": [
+    {
+      "file": "UI Regression.md",
+      "visible": true,
+      "contentWidth": 620,
+      "contentScroll": 620,
+      "paneWidth": 620,
+      "paneScroll": 620,
+      "lines": [
+        {
+          "left": 30,
+          "right": 575.59375,
+          "width": 545.59375,
+          "css": "position: relative; inset-inline-start: 0px; width: calc(100% - min(30px, 50%)); box-sizing: border-box; margin-inline: min(30px, 50%) auto !important;",
+          "className": "cm-line heading-level-indent-line HyperMD-header HyperMD-header-2",
+          "text": "Second-level heading"
+        },
+        {
+          "left": 50,
+          "right": 595.59375,
+          "width": 545.59375,
+          "css": "position: relative; inset-inline-start: 0px; width: calc(100% - min(50px, 50%)); box-sizing: border-box; margin-inline: min(50px, 50%) auto !important;",
+          "className": "cm-line heading-level-indent-line",
+          "text": ""
+        },
+        {
+          "left": 50,
+          "right": 595.59375,
+          "width": 545.59375,
+          "css": "position: relative; inset-inline-start: 0px; width: calc(100% - min(50px, 50%)); box-sizing: border-box; margin-inline: min(50px, 50%) auto !important;",
+          "className": "cm-line heading-level-indent-line cm-active",
+          "text": "Prose marker: this synthetic paragraph should use its own note width even while "
+        },
+        {
+          "left": 50,
+          "right": 595.59375,
+          "width": 545.59375,
+          "css": "position: relative; inset-inline-start: 0px; width: calc(100% - min(50px, 50%)); box-sizing: border-box; margin-inline: min(50px, 50%) auto !important;",
+          "className": "cm-line heading-level-indent-line",
+          "text": ""
+        },
+        {
+          "left": 50,
+          "right": 595.59375,
+          "width": 545.59375,
+          "css": "position: relative; inset-inline-start: 0px; width: calc(100% - min(50px, 50%)); box-sizing: border-box; margin-inline: min(50px, 50%) auto !important;",
+          "className": "cm-line heading-level-indent-line HyperMD-header HyperMD-header-3",
+          "text": "Third-level heading"
+        },
+        {
+          "left": 70,
+          "right": 615.59375,
+          "width": 545.59375,
+          "css": "position: relative; inset-inline-start: 0px; width: calc(100% - min(70px, 50%)); box-sizing: border-box; margin-inline: min(70px, 50%) auto !important;",
+          "className": "cm-line heading-level-indent-line",
+          "text": ""
+        },
+        {
+          "left": 70,
+          "right": 615.59375,
+          "width": 545.59375,
+          "css": "position: relative; inset-inline-start: 0px; width: calc(100% - min(70px, 50%)); box-sizing: border-box; margin-inline: min(70px, 50%) auto !important;",
+          "className": "cm-line heading-level-indent-line",
+          "text": "Another synthetic paragraph remains inside the note pane. "
+        },
+        {
+          "left": 70,
+          "right": 615.59375,
+          "width": 545.59375,
+          "css": "position: relative; inset-inline-start: 0px; width: calc(100% - min(70px, 50%)); box-sizing: border-box; margin-inline: min(70px, 50%) auto !important;",
+          "className": "cm-line heading-level-indent-line",
+          "text": ""
+        },
+        {
+          "left": 70,
+          "right": 615.59375,
+          "width": 545.59375,
+          "css": "text-indent: -23px; padding-inline-start: 23px; position: relative; inset-inline-start: 0px; width: calc(100% - min(70px, 50%)); box-sizing: border-box; margin-inline: min(70px, 50%) auto !important;",
+          "className": "cm-line heading-level-indent-line HyperMD-list-line HyperMD-list-line-1",
+          "text": "- A list item under the third-level heading."
+        },
+        {
+          "left": 70,
+          "right": 615.59375,
+          "width": 545.59375,
+          "css": "text-indent: -23px; padding-inline-start: 23px; position: relative; inset-inline-start: 0px; width: calc(100% - min(70px, 50%)); box-sizing: border-box; margin-inline: min(70px, 50%) auto !important;",
+          "className": "cm-line heading-level-indent-line HyperMD-list-line HyperMD-list-line-1",
+          "text": "- Another list item, with no personal information."
+        },
+        {
+          "left": 70,
+          "right": 615.59375,
+          "width": 545.59375,
+          "css": "position: relative; inset-inline-start: 0px; width: calc(100% - min(70px, 50%)); box-sizing: border-box; margin-inline: min(70px, 50%) auto !important;",
+          "className": "cm-line heading-level-indent-line",
+          "text": ""
+        }
+      ],
+      "widgets": []
+    },
+    {
+      "file": "Disabled Regression.md",
+      "visible": false,
+      "contentWidth": 0,
+      "contentScroll": 0,
+      "paneWidth": 0,
+      "paneScroll": 0,
+      "lines": [
+        {
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "css": null,
+          "className": "cm-line cm-active",
+          "text": ""
+        },
+        {
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "css": null,
+          "className": "cm-line HyperMD-header HyperMD-header-2",
+          "text": "Disabled heading"
+        },
+        {
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "css": null,
+          "className": "cm-line",
+          "text": ""
+        },
+        {
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "css": null,
+          "className": "cm-line",
+          "text": "Disabled prose marker: this note must retain the theme's normal positioning."
+        },
+        {
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "css": null,
+          "className": "cm-line",
+          "text": ""
+        }
+      ],
+      "widgets": [
+        {
+          "left": 0,
+          "right": 0,
+          "width": 0,
+          "css": null,
+          "className": "",
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "width": 334,
+      "active": true,
+      "activeLeaf": true,
+      "decorated": 0
+    }
+  ],
+  "errors": []
+}

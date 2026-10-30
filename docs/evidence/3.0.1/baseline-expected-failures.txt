@@ -1,0 +1,52 @@
+
+> heading-level-indent@3.0.1 test
+> playwright test --grep Minimal centered|focusing a 450px
+
+
+Running 2 tests using 1 worker
+
+Minimal geometry {"contentWidth":906,"contentScroll":931,"paneWidth":938,"paneScroll":938,"lines":[{"left":52.65625,"right":913.34375,"width":860.6875,"css":"left:30px;width:876px;","className":"cm-line"},{"left":75,"right":931,"width":856,"css":"left:50px;width:856px;","className":"cm-line"}],"embeds":[]}
+  ✘  1 tests/editing.spec.mjs:17:1 › Minimal centered margins do not make indented prose overflow (380ms)
+Focus geometry {"before":{"contentWidth":1010,"contentScroll":1035,"paneWidth":1042,"paneScroll":1042,"lines":[{"left":55.25,"right":1014.75,"width":959.5,"css":"left:30px;width:980px;","className":"cm-line"},{"left":75.25,"right":1034.75,"width":959.5,"css":"left:50px;width:960px;","className":"cm-line"}],"embeds":[]},"after":{"contentWidth":1010,"contentScroll":1010,"paneWidth":1042,"paneScroll":1042,"lines":[{"left":325,"right":745,"width":420,"css":"left:30px;width:420px;","className":"cm-line"},{"left":355,"right":755,"width":400,"css":"left:50px;width:400px;","className":"cm-line"}],"embeds":[]}}
+  ✘  2 tests/editing.spec.mjs:27:1 › focusing a 450px non-note editor cannot shrink an inactive note (246ms)
+
+
+  1) tests/editing.spec.mjs:17:1 › Minimal centered margins do not make indented prose overflow ────
+
+    Error: expect(received).toBeLessThanOrEqual(expected)
+
+    Expected: <= 906
+    Received:    931
+
+      20 |     console.log("Minimal geometry", JSON.stringify(actual));
+      21 |     expect(actual.paneScroll).toBeLessThanOrEqual(actual.paneWidth);
+    > 22 |     expect(actual.contentScroll).toBeLessThanOrEqual(actual.contentWidth);
+         |                                  ^
+      23 |     expect(actual.lines[1].left).toBeCloseTo(50, 0);
+      24 |     expect(actual.lines[1].right).toBeLessThanOrEqual(actual.contentWidth + 1);
+      25 | });
+        at <repo>/tests/editing.spec.mjs:22:34
+
+    Error Context: <test-output>/publish-baseline/results/editing-Minimal-centered-m-1926e-ake-indented-prose-overflow/error-context.md
+
+  2) tests/editing.spec.mjs:27:1 › focusing a 450px non-note editor cannot shrink an inactive note ─
+
+    Error: expect(received).toBeGreaterThan(expected)
+
+    Expected: > 900
+    Received:   400
+
+      34 |     const after = await measure(page, "note");
+      35 |     console.log("Focus geometry", JSON.stringify({ before, after }));
+    > 36 |     expect(after.lines[1].width).toBeGreaterThan(900);
+         |                                  ^
+      37 |     expect(after.lines[1].width).toBeCloseTo(before.lines[1].width, 0);
+      38 | });
+      39 |
+        at <repo>/tests/editing.spec.mjs:36:34
+
+    Error Context: <test-output>/publish-baseline/results/editing-focusing-a-450px-n-88f37-not-shrink-an-inactive-note/error-context.md
+
+  2 failed
+    tests/editing.spec.mjs:17:1 › Minimal centered margins do not make indented prose overflow ─────
+    tests/editing.spec.mjs:27:1 › focusing a 450px non-note editor cannot shrink an inactive note ──
